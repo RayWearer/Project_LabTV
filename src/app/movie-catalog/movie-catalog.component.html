@@ -1,0 +1,23 @@
+<div id="catalogTitle">
+  <h2>Più visti di recente</h2>
+</div>
+<div class="movie-container">
+  <div class="movie-item" *ngFor="let movie of movies" (click)="openMovieDetails(movie)">
+    <img class="movie-poster" [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title">
+    <div class="movie-details">
+      <h3>{{ movie.title }}</h3>
+      <p>{{ movie.release_date | date:'yyyy' }}</p>
+    </div>
+  </div>
+</div>
+
+<!-- <div id="dataCheck" *ngFor="let movie of movies">{{movie | json}}</div> -->
+
+<div class="pagination">
+  <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">◀</button>
+  <span>Pagina {{ currentPage }}</span>
+  <button (click)="changePage(currentPage + 1)">▶</button>
+</div>
+
+<app-movie-details-popup></app-movie-details-popup>
+<app-search></app-search>

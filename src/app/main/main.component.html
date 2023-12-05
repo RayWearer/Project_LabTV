@@ -1,0 +1,81 @@
+<main>
+
+  <div id="catalogTitle">
+    <h2>Ultime aggiunte</h2>
+  </div>
+
+  <div class="slider" id="movies" #moviesSlider>
+    <h3>Film</h3>
+    <div class="overlay" *ngFor="let movie of movies" (click)="openWindow('movie', movie)">
+      <img [src]="movie.imgSrc" [alt]="movie.title">
+      <div class="movieInfo">
+        <div class="title">{{ movie.title }}</div>
+        <div class="synopsis">{{ movie.synopsis }}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sliderHandler">
+    <button class="leftButton" (click)="moveSliderLeft('moviesSlider')">◀</button>
+    <button class="rightButton" (click)="moveSliderRight('moviesSlider')">▶</button>
+  </div>
+
+  <h3>Serie TV</h3>
+  <div class="slider" id="tvSeries" #seriesSlider>
+    <div class="overlay" *ngFor="let serie of series" (click)="openWindow('serie', serie)">
+      <img [src]="serie.imgSrc" [alt]="serie.title">
+    </div>
+  </div>
+
+  <div class="sliderHandler">
+    <button class="leftButton" (click)="moveSliderLeft('seriesSlider')">◀</button>
+    <button class="rightButton" (click)="moveSliderRight('seriesSlider')">▶</button>
+  </div>
+
+  <h3>Animazione</h3>
+  <div class="slider" id="animated" #animationsSlider>
+    <div class="overlay" *ngFor="let animation of animations" (click)="openWindow('animation', animation)">
+      <img [src]="animation.imgSrc" [alt]="animation.title">
+    </div>
+  </div>
+
+  <div class="sliderHandler">
+    <button class="leftButton" (click)="moveSliderLeft('animationsSlider')">◀</button>
+    <button class="rightButton" (click)="moveSliderRight('animationsSlider')">▶</button>
+  </div>
+
+  <div class="movieWindow" *ngIf="selectedMovie">
+      <h3>{{ selectedMovie.title }}</h3>
+      <p>{{ selectedMovie.synopsis }}</p>
+      <button>GUARDA ORA</button>
+      <a href="#" class="close-popup" aria-label="Chiudi popup" (click)="closeWindow('movie', $event)">&times;</a>
+  </div>
+
+  <div class="seriesWindow" *ngIf="selectedSerie">
+      <h3>{{ selectedSerie.title }}</h3>
+      <p>{{ selectedSerie.synopsis }}</p>
+      <button class="seasonSelect">STAGIONE 1</button>
+
+      <div class="episodesList" id="allEpisodes" #episodesSlider>
+        <div class="episode" *ngFor="let episode of seriesEpisodes; let i = index">
+          <div id="playButton"><p>▶</p></div>
+          <img [src]="'../../assets/img/screenCaps/' + selectedSerie.screenCaps + '/' + (i + 1) + '.jpg'" alt="Episode {{ i + 1 }}">
+          <p>Episodio {{ i + 1 }}</p>
+        </div>
+      </div>
+
+      <div class="sliderHandler">
+        <button class="leftButton" (click)="moveSliderLeft('episodesSlider')">◀</button>
+        <button class="rightButton" (click)="moveSliderRight('episodesSlider')">▶</button>
+      </div>
+      <a href="#" class="close-popup" aria-label="Chiudi popup" (click)="closeWindow('serie', $event)">&times;</a>
+  </div>
+
+  <div class="animationsWindow" *ngIf="selectedAnimation">
+      <h3>{{ selectedAnimation.title }}</h3>
+      <p>{{ selectedAnimation.synopsis }}</p>
+      <button>GUARDA ORA</button>
+      <a href="#" class="close-popup" aria-label="Chiudi popup" (click)="closeWindow('animation', $event)"> &times;</a>
+  </div>
+
+</main>

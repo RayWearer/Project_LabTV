@@ -1,0 +1,9 @@
+<div class="search">
+    <div class="floating-search-icon" (click)="toggleSearchBar()">
+        <img src="../../assets/img/search_movie.png" alt="Tasto di ricerca">
+    </div>
+    <div class="search-bar" *ngIf="toggleService.searchVisible$ | async">
+        <input type="text" placeholder="Inserire parole chiave" [(ngModel)]="searchQuery">
+        <button (click)="handleSearchQuery()">Effettua ricerca</button>
+    </div>
+</div>

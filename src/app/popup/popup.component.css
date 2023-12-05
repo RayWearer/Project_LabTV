@@ -1,0 +1,204 @@
+.popup{
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 99;
+}
+
+.popup-content{
+    min-width: 488px;
+    max-width: 800px;
+    max-height: 80vh;
+    padding: 24px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #777;
+    text-align: center;
+    overflow: auto;
+}
+
+.popup h2{
+    margin: 16px;
+}
+
+.popup form{
+    display: flex;
+    flex-direction: column;
+}
+
+.popup label{
+    text-align: left;
+    margin-bottom: 8px;
+}
+
+.popup .socials{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.socials h4{
+    margin-right: 16px;
+}
+
+.socials ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.socials ul li{
+    width: 32px;
+    height: 32px;
+    margin-right: 4px;
+}
+
+.socials ul li:last-of-type{
+    margin-right: 0;
+}
+
+.socials ul li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url(../../assets/img/social.png);
+    margin-bottom: 0;
+}
+
+.socials ul li:nth-of-type(2) a{
+    background-position: 0 -64px;
+}
+
+.socials ul li:nth-of-type(3) a{
+    background-position: 0 -128px;
+}
+
+.socials ul li:nth-of-type(4) a{
+    background-position: 0 -192px;
+}
+
+.socials ul li:first-of-type:hover a{
+    background-position: 0 -32px;
+}
+
+.socials ul li:nth-of-type(2):hover a{
+    background-position: 0 -96px;
+}
+
+.socials ul li:nth-of-type(3):hover a{
+    background-position: 0 -160px;
+}
+
+.socials ul li:nth-of-type(4):hover a{
+    background-position: 0 -224px;
+}
+
+.popup p{
+    margin: 0;
+}
+
+.popup #privacyInfo label[for="privacy"]{
+    margin-bottom: 8px;
+}
+
+.popup #termsAndConditions{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#termsAndConditions label[For="checkTandC"]{
+    line-height: 20px;
+    margin-left: 8px;
+}
+
+.popup textarea{
+    resize: none;
+}
+
+.popup #privacyInfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.popup button{
+    margin: 8px auto 8px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popup .close-popup{
+    position: absolute;
+    top: -4px;
+    right: 8px;
+    font-size: 2em;
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.error {
+    border: 2px solid #ce0000;
+}
+
+.error-message {
+    color: #ce0000;
+    font-size: 0.8em;
+}
+
+.moviePopup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 800px;
+    max-height: 560px;
+    color: #fff;
+    padding: 24px;
+    border-radius: 8px;
+    z-index: 3;
+}
+
+.moviePopup .popup-content{
+    min-width: 488px;
+    max-width: 800px;
+    max-height: 560px;
+    padding: 24px;
+    border-radius: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.9);
+    text-align: center;
+}
+
+.moviePopup .close-popup{
+    position: absolute;
+    top: -4px;
+    right: 8px;
+    font-size: 2em;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 512px) {
+    .popup-content {
+        min-width: 80%;
+        max-width: 90%;
+        padding: 4vw;
+    }
+}

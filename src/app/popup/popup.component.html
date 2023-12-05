@@ -1,0 +1,118 @@
+<!-- MODULO CONTATTI -->
+<div class="popup" *ngIf="currentPopup === 'contacts'">
+    <div class="popup-content">
+        <div class="socials">
+            <h4>Seguici sulle nostre pagine social!</h4>
+            <ul id="sprites">
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+                <li><a href="#"></a></li>
+            </ul>
+        </div>
+        <p>Compila il modulo sottostante se desideri contattarci</p>
+        <form id="contactForm" [formGroup]="contactForm">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" formControlName="name" required
+                [class.error]="contactForm.get('name')!.invalid && (contactForm.get('name')!.touched)">
+            <div *ngIf="contactForm.get('name')!.invalid && (contactForm.get('name')!.touched)" class="error-message">
+                Il nome è obbligatorio e deve contenere almeno 2 caratteri.
+            </div>
+
+            <label for="surname">Cognome:</label>
+            <input type="text" id="surname" name="surname" formControlName="surname" required
+                [class.error]="contactForm.get('surname')!.invalid && (contactForm.get('surname')!.touched)">
+            <div *ngIf="contactForm.get('surname')!.invalid && (contactForm.get('surname')!.touched)" class="error-message">
+                Il cognome è obbligatorio e deve contenere almeno 2 caratteri.
+            </div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="contactEmail" name="contactEmail" formControlName="contactEmail" required
+                [class.error]="contactForm.get('contactEmail')!.invalid && (contactForm.get('contactEmail')!.touched)">
+            <div *ngIf="contactForm.get('contactEmail')!.invalid && (contactForm.get('contactEmail')!.touched)" class="error-message">
+                L' email inserita non risulta valida.
+            </div>
+
+            <label for="telNumber">Telefono:</label>
+            <input type="tel" id="telNumber" name="telNumber" formControlName="telNumber" required
+                [class.error]="contactForm.get('telNumber')!.invalid && (contactForm.get('telNumber')!.touched)">
+            <div *ngIf="contactForm.get('telNumber')!.invalid && (contactForm.get('telNumber')!.touched)" class="error-message">
+                Il numero di telefono non risulta valido.
+            </div>
+
+            <label for="text">Messaggio:</label>
+            <textarea type="text" id="text" name="text" maxlength="400" placeholder="Massimo 400 caratteri" formControlName="text" required></textarea>
+            <div *ngIf="contactForm.get('text')!.invalid && (contactForm.get('text')!.touched)" class="error-message">
+                Il messaggio è obbligatorio e deve contenere almeno 30 caratteri.
+            </div>
+
+            <div id="privacyInfo">
+                <input type="checkbox" id="privacy" name="privacy" formControlName="privacy" required>
+                <label for="privacy">Accetto l'<a href="#">informativa sulla privacy</a></label>
+            </div>
+
+            <button type="submit">INVIA</button>
+        </form>
+        <a (click)="closePopup()" class="close-popup" aria-label="Chiudi popup">&times;</a>
+    </div>
+</div>
+<!-- FINE MODULO CONTATTI -->
+
+<!-- MODULI DI LOGIN E REGISTRAZIONE -->
+<div class="popup" *ngIf="currentPopup === 'login'">
+    <div class="popup-content">
+        <h2>Accedi</h2>
+        <form id="loginForm" [formGroup]="loginForm">
+            <label for="email">Email</label>
+            <input type="email" id="email" formControlName="email" required
+                [class.error]="loginForm.get('email')!.invalid && loginForm.get('email')!.touched">
+            <div *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched" class="error-message">
+                L' email inserita non risulta valida.
+            </div>
+            <label for="password">Password</label>
+            <input type="password" id="password" formControlName="password" required
+                [class.error]="loginForm.get('password')!.invalid && loginForm.get('password')!.touched">
+            <div *ngIf="loginForm.get('password')!.invalid && loginForm.get('password')!.touched" class="error-message">
+                La password deve contenere almeno 8 caratteri di cui lettere maiuscole, minuscole, numeri e almeno un carattere speciale.
+            </div>
+            <button type="submit">Accedi</button>
+        </form>
+        <a href="#">Recupera Password</a>
+        <p>Non sei ancora iscritto?</p>
+        <a href="#" id="newAccount" (click)="openRegistrationPopup()">Crea un nuovo account</a>
+        <a (click)="closePopup()" class="close-popup" aria-label="Chiudi popup">&times;</a>
+    </div>
+</div>
+
+<div class="popup" *ngIf="currentPopup === 'registration'">
+    <div class="popup-content">
+        <h2>Crea un nuovo account</h2>
+        <form id="registrationForm" [formGroup]="registrationForm">
+            <label for="regEmail">Email</label>
+            <input type="email" id="regEmail" formControlName="regEmail" required
+                [class.error]="registrationForm.get('regEmail')!.invalid && registrationForm.get('regEmail')!.touched">
+            <div *ngIf="registrationForm.get('regEmail')!.invalid && registrationForm.get('regEmail')!.touched" class="error-message">
+                Inserisci un indirizzo email valido.
+            </div>
+            <label for="regPassword">Password</label>
+            <input type="password" id="regPassword" formControlName="regPassword" required
+                [class.error]="registrationForm.get('regPassword')!.invalid && registrationForm.get('regPassword')!.touched">
+            <div *ngIf="registrationForm.get('regPassword')!.invalid && registrationForm.get('regPassword')!.touched" class="error-message">
+                La password deve contenere almeno 8 caratteri di cui lettere maiuscole, minuscole, numeri e almeno un carattere speciale.
+            </div>
+            <label for="confirmPassword">Conferma password</label>
+            <input type="password" id="confirmPassword" formControlName="confirmPassword" required
+                [class.error]="registrationForm.get('confirmPassword')!.invalid && registrationForm.get('confirmPassword')!.touched">
+            <div *ngIf="registrationForm.get('confirmPassword')!.invalid && registrationForm.get('confirmPassword')!.touched" class="error-message">
+                Le password non corrispondono.
+            </div>
+            <div id="termsAndConditions">
+                <input type="checkbox" id="checkTandC" formControlName="checkTandC" required>
+                <label for="checkTandC">Accetto <a href="#">Termini e Condizioni</a></label>
+            </div>
+            <button type="submit">Registrati ora</button>
+        </form>
+        <a (click)="closePopup()" class="close-popup" aria-label="Chiudi popup">&times;</a>
+    </div>
+</div>
+<!-- FINE MODULI DI LOGIN E REGISTRAZIONE -->

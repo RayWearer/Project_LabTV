@@ -1,0 +1,11 @@
+<header>
+    <a routerLink="/" id="logo"></a>
+
+    <nav>
+        <ul>
+            <li><a a routerLink="/catalogo" (click)="toggleButtonText()"><i class="icon-book"></i>{{ toggleService.buttonText$ | async }}</a></li>
+            <li><a id="contacts" (click)="openContactsPopup($event)"><i class="icon-contacts"></i>Contatti</a></li>
+            <li><a id="login" (click)="openLoginPopup($event)"><i class="icon-login"></i>Accedi</a></li>
+        </ul>
+    </nav>
+</header>

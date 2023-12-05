@@ -1,0 +1,15 @@
+<div *ngIf="movieDetails">
+  <div class="popup-container">
+    <iframe *ngIf="movieDetails.trailerKey" [src]="getTrailerUrl()" frameborder="0" allowfullscreen></iframe>
+    <!-- <img *ngIf="movieDetails.poster_path" [src]="'https://image.tmdb.org/t/p/w500' + movieDetails.poster_path" [alt]="movieDetails.title"> -->
+    <div class="popup-details">
+      <h2>{{ movieDetails.title }}</h2>
+      <p>{{ movieDetails.overview }}</p>
+      <p *ngIf="movieDetails.genres && movieDetails.genres.length">Genere: {{ getGenreNames() }}</p>
+      <p *ngIf="movieDetails.cast && movieDetails.cast.length">Cast: {{ getCastNames() }}</p>
+      <p *ngIf="movieDetails.director">Regista: {{ movieDetails.director }}</p>
+      <p *ngIf="movieDetails.similarMovies && movieDetails.similarMovies.length">Altri film simili: {{ getSimilarMovieTitles() }}</p>
+    </div>
+    <button (click)="closeMovieDetailsPopup()">Chiudi</button>
+  </div>
+</div>

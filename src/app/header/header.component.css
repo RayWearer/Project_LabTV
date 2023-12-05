@@ -1,0 +1,97 @@
+header{
+    position: fixed;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    padding: 8px;
+    background-color: #777;
+    z-index: 2;
+}
+
+header #logo{
+    display: flex;
+    align-items: center;
+    width: 190px;
+    height: 75px;
+    margin-left: 24px;
+    background-image: url(../../assets/img/logo-tipo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+header nav ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /* align-items: baseline; */
+}
+
+nav ul li:nth-child(2){
+    margin-left: 24px;
+    margin-right: 24px;
+}
+
+nav ul li:last-of-type{
+    margin-right: 24px;
+}
+
+nav a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* padding: 4px; */
+    text-decoration: none;
+    font-size: 1.2em;
+    color: #fff;
+    transition: 0.2s;
+}
+
+nav a i{
+    font-size: 1.4em;
+    color: #000;
+    transition: 0.2s;
+}
+
+nav a:hover{
+    color: #000;
+}
+
+nav a:hover i{
+    color: #ff1932;
+}
+
+@media only screen and (max-width: 714px) {
+    header #logo {
+        width: calc(100% - 20%);
+        height: calc(100% - 20%);
+        background-image: url(../../assets/img/logo-tipo.png);
+    }
+
+    nav a {
+        font-size: 1em;
+    }
+
+    nav a i {
+        text-align: right;
+        font-size: 2em;
+    }
+
+    nav ul li:nth-child(1){
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    nav ul li:last-of-type{
+        margin-right: 8px;
+    }
+
+}
+
+@media only screen and (max-width: 440px) {
+    header #logo {
+        background-image: url(../../assets/img/logo.png);
+    }
+}
